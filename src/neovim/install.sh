@@ -25,9 +25,6 @@ updaterc() {
     fi
 }
 
-
-apt-get remove -y neovim
-
 set -e
 
 apt-get update
