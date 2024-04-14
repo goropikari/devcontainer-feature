@@ -1,0 +1,20 @@
+{
+    "name": "evans",
+    "id": "evans",
+    "version": "1.0.0",
+    "description": "Install evans",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "v0.10.11"
+            ],
+            "default": "latest",
+            "description": "Select or enter a evans version to install"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
