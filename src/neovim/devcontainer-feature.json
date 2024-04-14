@@ -1,0 +1,21 @@
+{
+    "name": "neovim",
+    "id": "neovim",
+    "version": "1.0.0",
+    "description": "Install neovim",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "stable",
+                "v0.9.5",
+                "nightly"
+            ],
+            "default": "stable",
+            "description": "Select or enter a neovim version to install"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

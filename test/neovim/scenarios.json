@@ -1,0 +1,10 @@
+{
+    "neovim_debian": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "features": {
+            "neovim": {
+                "version": "stable"
+            }
+        }
+    }
+}
