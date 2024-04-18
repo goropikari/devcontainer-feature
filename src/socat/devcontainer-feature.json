@@ -1,0 +1,11 @@
+{
+    "name": "socat",
+    "id": "socat",
+    "version": "1.0.0",
+    "description": "Install socat (via apt)",
+    "options": {
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
