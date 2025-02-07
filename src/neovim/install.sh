@@ -25,21 +25,46 @@ updaterc() {
     fi
 }
 
+is_version_greater_or_equal_to_0_10_4() {
+    local version1="$1"
+    local version2="v0.10.4"
+
+    if [ $version1 = "stable" ]; then
+        return 0
+    fi
+    if [ $version1 = "latest" ]; then
+        return 0
+    fi
+
+    if [ "$(printf '%s\n' "$version1" "$version2" | sort -V | head -n1)" = "$version1" ]; then
+        if [ "$version1" = "$version2" ]; then
+            return 0  # true
+        else
+            return 1  # false
+        fi
+    else
+        return 0  # true
+    fi
+}
+
 set -e
 
 apt-get update
 apt-get install -y curl
 
 NVIM_VERSION=${VERSION:-"stable"}
-curl -LO https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim.appimage
-chmod +x nvim.appimage
+if is_version_greater_or_equal_to_0_10_4 "${NVIM_VERSION}"; then
+    ASSET=nvim-linux-x86_64.tar.gz
+else
+    ASSET=nvim-linux64.tar.gz
+fi
+curl -L https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/${ASSET} -o nvim.tar.gz
+
 rm -rf /opt/nvim
 mkdir -p /opt/nvim
-mv nvim.appimage /opt/nvim/
-cd /opt/nvim
-./nvim.appimage --appimage-extract
+tar --strip-components=1 -xf nvim.tar.gz -C /opt/nvim/
 
-NEOVIM_HOME=/opt/nvim/squashfs-root/usr
+NEOVIM_HOME=/opt/nvim
 export PATH=${NEOVIM_HOME}/bin:${PATH}
 updaterc "$(cat << EOF
 export NEOVIM_HOME=${NEOVIM_HOME}

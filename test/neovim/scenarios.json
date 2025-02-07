@@ -1,9 +1,25 @@
 {
     "neovim_debian": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian-11",
+        "image": "mcr.microsoft.com/devcontainers/base:debian-12",
         "features": {
             "neovim": {
                 "version": "stable"
+            }
+        }
+    },
+    "neovim_ubuntu": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+        "features": {
+            "neovim": {
+                "version": "stable"
+            }
+        }
+    },
+    "neovim_0_10_3_ubuntu": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+        "features": {
+            "neovim": {
+                "version": "v0.10.3"
             }
         }
     }

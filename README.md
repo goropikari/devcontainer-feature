@@ -186,3 +186,11 @@ An example `devcontainer.json` can be found below.
     }
 }
 ```
+
+
+## test
+
+```bash
+devcontainer features test
+devcontainer features test -f neovim
+```

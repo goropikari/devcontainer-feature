@@ -1,13 +1,14 @@
 {
     "name": "neovim",
     "id": "neovim",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "Install neovim",
     "options": {
         "version": {
             "type": "string",
             "proposals": [
                 "stable",
+                "v0.10.4",
                 "v0.9.5",
                 "nightly"
             ],
