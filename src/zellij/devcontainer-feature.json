@@ -1,0 +1,20 @@
+{
+    "name": "zellij",
+    "id": "zellij",
+    "version": "1.0.0",
+    "description": "Install zellij",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "v0.42.2",
+            ],
+            "default": "latest",
+            "description": "Select or enter a zellij version to install"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
