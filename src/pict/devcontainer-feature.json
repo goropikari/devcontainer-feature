@@ -1,0 +1,19 @@
+{
+    "name": "pict",
+    "id": "pict",
+    "version": "1.0.0",
+    "description": "Install pict",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest"
+            ],
+            "default": "latest",
+            "description": "Select or enter a pict version to install (currently only 'latest' is supported, which builds from the main branch)."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
