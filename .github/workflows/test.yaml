@@ -16,6 +16,7 @@ jobs:
           - neovim
           - evans
           - zellij
+          - pict
         baseImage:
           - mcr.microsoft.com/devcontainers/base:ubuntu
           - mcr.microsoft.com/devcontainers/base:debian
@@ -37,6 +38,7 @@ jobs:
           - neovim
           - evans
           - zellij
+          - pict
     steps:
       - uses: actions/checkout@v4
 
