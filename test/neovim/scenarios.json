@@ -15,11 +15,11 @@
             }
         }
     },
-    "neovim_0_10_3_ubuntu": {
+    "neovim_0_11_4_ubuntu": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
         "features": {
             "neovim": {
-                "version": "v0.10.3"
+                "version": "v0.11.4"
             }
         }
     }
