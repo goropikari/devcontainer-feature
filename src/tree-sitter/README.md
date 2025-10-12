@@ -1,3 +1,4 @@
+
 # tree-sitter-cli (tree-sitter)
 
 Install tree-sitter-cli
@@ -25,4 +26,3 @@ This Feature should work on recent versions of Debian/Ubuntu-based distributions
 ---
 
 _Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/goropikari/devcontainer-feature/blob/main/src/tree-sitter/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
-
