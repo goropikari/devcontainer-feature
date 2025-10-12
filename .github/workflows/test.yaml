@@ -17,6 +17,7 @@ jobs:
           - evans
           - zellij
           - pict
+          - tree-sitter
         baseImage:
           - mcr.microsoft.com/devcontainers/base:ubuntu
           - mcr.microsoft.com/devcontainers/base:debian
@@ -39,6 +40,7 @@ jobs:
           - evans
           - zellij
           - pict
+          - tree-sitter
     steps:
       - uses: actions/checkout@v4
 

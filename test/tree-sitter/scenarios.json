@@ -1,0 +1,18 @@
+{
+    "treesitter_debian": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-12",
+        "features": {
+            "tree-sitter": {
+                "version": "latest"
+            }
+        }
+    },
+    "treesitter_ubuntu": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+        "features": {
+            "tree-sitter": {
+                "version": "latest"
+            }
+        }
+    }
+}
