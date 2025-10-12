@@ -1,3 +1,4 @@
+
 # socat (socat)
 
 Install socat (via apt)
@@ -15,11 +16,13 @@ Install socat (via apt)
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 
+
 ## OS Support
 
 This Feature should work on recent versions of Debian/Ubuntu-based distributions with the `apt` package manager installed.
 
 `bash` is required to execute the `install.sh` script.
+
 
 ---
 
