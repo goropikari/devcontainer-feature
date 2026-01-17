@@ -3,6 +3,14 @@
         "image": "mcr.microsoft.com/devcontainers/base:debian-12",
         "features": {
             "tree-sitter": {
+                "version": "v0.25.10"
+            }
+        }
+    },
+    "treesitter_debian13": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-13",
+        "features": {
+            "tree-sitter": {
                 "version": "latest"
             }
         }

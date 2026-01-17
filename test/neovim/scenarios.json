@@ -22,5 +22,13 @@
                 "version": "v0.11.4"
             }
         }
+    },
+    "neovim_nightly": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+        "features": {
+            "neovim": {
+                "version": "nightly"
+            }
+        }
     }
 }
