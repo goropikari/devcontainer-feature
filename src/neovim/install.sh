@@ -29,10 +29,7 @@ is_version_greater_or_equal_to_0_10_4() {
     local version1="$1"
     local version2="v0.10.4"
 
-    if [ $version1 = "stable" ]; then
-        return 0
-    fi
-    if [ $version1 = "latest" ]; then
+    if [ $version1 = "stable" ] || [ $version1 = "latest" ] || [ $version1 = "nightly" ]; then
         return 0
     fi
 
@@ -53,7 +50,9 @@ apt-get update
 apt-get install -y curl
 
 NVIM_VERSION=${VERSION:-"stable"}
-if is_version_greater_or_equal_to_0_10_4 "${NVIM_VERSION}"; then
+if [ "${NVIM_VERSION}" = "nightly" ]; then
+    ASSET=nvim-linux-x86_64.tar.gz
+elif is_version_greater_or_equal_to_0_10_4 "${NVIM_VERSION}"; then
     ASSET=nvim-linux-x86_64.tar.gz
 else
     ASSET=nvim-linux64.tar.gz
