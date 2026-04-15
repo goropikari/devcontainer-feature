@@ -24,11 +24,11 @@ This Feature should work on recent versions of Debian/Ubuntu-based distributions
 
 `bash` is required to execute the `install.sh` script.
 
-## Notes
+## tree-sitter
 
 This Feature also installs `tree-sitter` CLI.
 
-When `treeSitterVersion` is `auto`, Debian bookworm installs `0.25.10` and other supported distributions install the latest release. If you set `treeSitterVersion` explicitly, that version is used even on bookworm.
+`treeSitterVersion=auto` installs `0.25.10` on Debian bookworm and the latest release elsewhere. Setting `treeSitterVersion` explicitly overrides the automatic selection.
 
 
 ---
