@@ -1,8 +1,8 @@
 {
     "name": "neovim",
     "id": "neovim",
-    "version": "1.2.0",
-    "description": "Install neovim",
+    "version": "1.3.0",
+    "description": "Install neovim and tree-sitter-cli",
     "options": {
         "version": {
             "type": "string",
@@ -14,6 +14,16 @@
             ],
             "default": "stable",
             "description": "Select or enter a neovim version to install"
+        },
+        "treeSitterVersion": {
+            "type": "string",
+            "proposals": [
+                "auto",
+                "latest",
+                "0.25.10"
+            ],
+            "default": "auto",
+            "description": "Select or enter a tree-sitter-cli version to install. auto uses 0.25.10 on Debian bookworm and latest elsewhere"
         }
     },
     "installsAfter": [

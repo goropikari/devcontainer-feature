@@ -3,7 +3,8 @@
         "image": "mcr.microsoft.com/devcontainers/base:debian-12",
         "features": {
             "neovim": {
-                "version": "stable"
+                "version": "stable",
+                "treeSitterVersion": "auto"
             }
         }
     },
@@ -11,7 +12,8 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
         "features": {
             "neovim": {
-                "version": "stable"
+                "version": "stable",
+                "treeSitterVersion": "auto"
             }
         }
     },
@@ -19,7 +21,8 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
         "features": {
             "neovim": {
-                "version": "v0.11.4"
+                "version": "v0.11.4",
+                "treeSitterVersion": "auto"
             }
         }
     },
@@ -27,7 +30,26 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
         "features": {
             "neovim": {
-                "version": "nightly"
+                "version": "nightly",
+                "treeSitterVersion": "auto"
+            }
+        }
+    },
+    "neovim_tree_sitter_override_debian": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-12",
+        "features": {
+            "neovim": {
+                "version": "stable",
+                "treeSitterVersion": "0.24.7"
+            }
+        }
+    },
+    "neovim_debian13": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian-13",
+        "features": {
+            "neovim": {
+                "version": "stable",
+                "treeSitterVersion": "auto"
             }
         }
     }

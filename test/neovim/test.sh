@@ -10,6 +10,7 @@ source dev-container-features-test-lib
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
 check "neovim version" nvim --version
+check "tree-sitter version" tree-sitter -V
 
 # Report results
 # If any of the checks above exited with a non-zero exit code, the test will fail.

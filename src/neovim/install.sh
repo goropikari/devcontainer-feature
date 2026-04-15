@@ -25,6 +25,48 @@ updaterc() {
     fi
 }
 
+get_tree_sitter_version() {
+    local requested_version="${TREE_SITTER_VERSION:-auto}"
+
+    if [ "${requested_version}" != "auto" ]; then
+        echo "${requested_version#v}"
+        return 0
+    fi
+
+    . /etc/os-release
+    if [ "${VERSION_CODENAME:-}" = "bookworm" ]; then
+        echo "0.25.10"
+        return 0
+    fi
+
+    echo "latest"
+}
+
+resolve_latest_tree_sitter_version() {
+    curl -sL https://api.github.com/repos/tree-sitter/tree-sitter/releases/latest | grep '"tag_name":' | sed -E 's/.*"v*([^"]+)".*/\1/'
+}
+
+install_tree_sitter() {
+    local version="$1"
+    local architecture=""
+
+    if [ "${version}" = "latest" ]; then
+        version="$(resolve_latest_tree_sitter_version)"
+    fi
+
+    case "$(dpkg --print-architecture)" in
+        amd64) architecture="x64" ;;
+        arm64) architecture="arm64" ;;
+        *) echo "unsupported architecture"; exit 1 ;;
+    esac
+
+    curl -L "https://github.com/tree-sitter/tree-sitter/releases/download/v${version}/tree-sitter-linux-${architecture}.gz" -o tree-sitter.gz
+    gzip -d tree-sitter.gz
+
+    mv tree-sitter /usr/local/bin/tree-sitter
+    chmod +x /usr/local/bin/tree-sitter
+}
+
 is_version_greater_or_equal_to_0_10_4() {
     local version1="$1"
     local version2="v0.10.4"
@@ -47,9 +89,11 @@ is_version_greater_or_equal_to_0_10_4() {
 set -e
 
 apt-get update
-apt-get install -y curl
+apt-get install -y curl gzip
 
 NVIM_VERSION=${VERSION:-"stable"}
+TREE_SITTER_VERSION=${TREESITTERVERSION:-"auto"}
+
 if [ "${NVIM_VERSION}" = "nightly" ]; then
     ASSET=nvim-linux-x86_64.tar.gz
 elif is_version_greater_or_equal_to_0_10_4 "${NVIM_VERSION}"; then
@@ -62,6 +106,8 @@ curl -L https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/${ASS
 rm -rf /opt/nvim
 mkdir -p /opt/nvim
 tar --strip-components=1 -xf nvim.tar.gz -C /opt/nvim/
+
+install_tree_sitter "$(get_tree_sitter_version)"
 
 NEOVIM_HOME=/opt/nvim
 export PATH=${NEOVIM_HOME}/bin:${PATH}
